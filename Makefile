@@ -29,3 +29,5 @@ libft.a :
 #make -C libft/ bonus 명령어는 
 #libft/ 디렉터리에서 Makefile을 찾아 all_bonus 규칙을 실행
 	make -C libft/ all_bonus
+
+#@$(MAKE)OBJS="$(OBJS) $(OBJSBONUS)" --no-print-directory : make bonus and madatory objects file at the same time.

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
+/*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 12:54:36 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/01/09 16:44:18 by suminkwon        ###   ########.fr       */
+/*   Updated: 2024/01/11 17:49:15 by skwon2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,34 +50,24 @@ int	ft_printf(const char *format, ...)
 int	check_specifier(t_print **print, char format)
 {
 	if (format == 'c')
-		return (put_char(print,format));
+		return (putchar(print, va_arg((*print)->ap, char)));
 	else if (format == 's')
-	{
-		
-	}
+		return (putstr(print, va_arg((*print)->ap, char *)));
 	else if (format == 'p')
-	{
-		
-	}
+		return (putptr(print, va_arg((*print)->ap, unsigned long)));
 	else if (format == 'd' || format == 'i')
-	{
-		
-	}
+		return (putnum(print, va_arg((*print)->ap, int)));
 	else if (format == 'u')
-	{
-		
-	}
+		return(putnum_unsigned(print, va_arg((*print)->ap, unsigned int)));
 	else if (format == 'x')
-	{
-		
-	} 
+		return(puthex(print, va_arg((*print)->ap, unsigned long)));
 	else if (format == 'X')
-	{
-		
-	} 
+		return(puthex_cap(print, va_arg((*print)->ap, unsigned long)));
 	else if (format == '%')
-	{
 		
-	}
-	return (print->len);
+	return ((*print)->len);
 }
+
+// However, these are different when used as input specifier e.g. with scanf, where %d scans an integer as a signed decimal number,
+// but %i defaults to decimal but also allows hexadecimal (if preceded by 0x) and octal if preceded by 0
+// but with d also work with 0x in front : like same as i

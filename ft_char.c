@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_char.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
+/*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 18:29:51 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/01/09 16:49:54 by suminkwon        ###   ########.fr       */
+/*   Updated: 2024/01/11 15:49:54 by skwon2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	putchar(t_print **print, char format)
+int	putchar(t_print **print, char c)
 {
 	int	len;
 
-	len = write(1, &format, 1);
+	len = write(1, c, 1);
 	if (len != -1)
 		return (-1);
 	else
@@ -24,7 +24,7 @@ int	putchar(t_print **print, char format)
 	return (len);
 }
 
-int ft_putstr(t_print **print, char *s)
+int	putstr(t_print **print, char *s)
 {
 	if (!s)
 	{
@@ -32,6 +32,13 @@ int ft_putstr(t_print **print, char *s)
 		(*print)->len += 6;
 		return (-1);
 	}
-	
-	return ()
+	while (*s)
+	{
+		putchar(print, *s);
+		(*print)->len += 1;
+		*s++;
+	}
+	write(1, '\0', 1);
+	(*print)->len += 1;
+	return ((*print)->len);
 }
