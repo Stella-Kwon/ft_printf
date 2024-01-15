@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
+/*   By: sukwon <sukwon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:02:16 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/01/07 18:48:34 by suminkwon        ###   ########.fr       */
+/*   Updated: 2024/01/12 14:24:33 by sukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
 typedef struct s_list
 {
 	void			*content;

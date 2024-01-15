@@ -60,7 +60,21 @@ OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 all_bonus : all bonus
+	
+#아니면 이렇게 
+#@$(MAKE)OBJS="$(OBJS) $(OBJSBONUS)" --no-print-directory 
+#: make bonus and madatory objects file at the same time. 
+# 간단히 설명하면, $(MAKE)는 현재 Makefile을 다시 호출하는 명령어이며, 
+# Makefile 내부의 변수 OBJS와 OBJSBONUS를 환경 변수 OBJS로 설정하고 Makefile을 재귀적으로 호출하는 것입니다.
+# --no-print-directory 플래그는 호출되는 각 하위 Makefile에서 디렉토리 변경을 출력하지 않도록 설정하는 것입니다.
 
+# @는 Makefile에서 명령이 실행될 때 해당 명령을 출력하지 않도록 하는 역할을 합니다. 
+# 즉, 명령이 실행되어도 화면에 출력되지 않습니다. 
+# 이것은 보통 불필요한 출력을 줄이고 빌드 로그를 깔끔하게 유지하기 위해 사용됩니다.
+
+# 해당 라인에서 @$(MAKE)OBJS="$(OBJS) $(OBJSBONUS)" --no-print-directory는 
+# 부모 Makefile에서 하위 Makefile을 호출할 때, 즉 다른 Makefile을 실행할 때 사용됩니다. 
+# --no-print-directory 옵션은 하위 Makefile이 실행될 때 그 디렉토리를 출력하지 않도록 하는 옵션입니다.
 all: $(NAME)
 
 $(NAME): $(OBJS)

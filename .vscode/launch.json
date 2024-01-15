@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/suminkwon/Desktop/printf",
-      "program": "/Users/suminkwon/Desktop/printf/build/Debug/outDebug"
+      "cwd": "/Users/kwonsumin/Desktop/ft_printf",
+      "program": "/Users/kwonsumin/Desktop/ft_printf/build/Debug/outDebug"
     }
   ]
 }
