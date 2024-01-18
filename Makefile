@@ -6,8 +6,6 @@ SRCS = ft_printf.c\
 		ft_hexa.c
 
 INCLUDE = -I./ -I./libft
-# -I.: This includes the current directory (root directory) in the search path.
-# -I./subdir: This includes the subdir directory in the search path.
 
 LIBFT_DIR := ./libft
 
@@ -22,8 +20,6 @@ all : $(NAME)
 $(NAME): $(LIBFT) $(OBJS)
 	cp $(LIBFT) $(NAME)	
 	ar -rcs $(NAME) $(OBJS) 
-# ar -rcs $(NAME) $(OBJS) ./libft/*.o로 하니까 ./get_next_line/으로 들어가는 폴더 패스가 인식이안되서 cp로 바꿈
-# ar -t libftprintf.a    => .a 파일 안에 잘 .o파일있나 확인하는법 
 
 $(LIBFT):
 	$(MAKE) -C libft

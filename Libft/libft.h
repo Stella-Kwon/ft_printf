@@ -6,7 +6,7 @@
 /*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:02:16 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/01/18 13:00:13 by skwon2           ###   ########.fr       */
+/*   Updated: 2024/01/18 15:31:07 by skwon2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include "./get_next_line/get_next_line.h" // 같은 폴더가 아니라서 이렇게 명시해줘야 찾음  -I랑은 별개. 옵션있어도 정확한 루트 있어야해
+# include "./get_next_line/get_next_line.h" 
 
 typedef struct s_list
 {
