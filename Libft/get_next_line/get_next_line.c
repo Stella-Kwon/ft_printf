@@ -6,7 +6,7 @@
 /*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 14:03:43 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/01/05 15:38:00 by skwon2           ###   ########.fr       */
+/*   Updated: 2024/01/18 13:04:45 by skwon2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static char	*find_newline(char *previous_read, int fd)
 		if (readsize == -1)
 			return (free_both(&previous_read, &buffer));
 		buffer[readsize] = '\0';
-		previous_read = ft_strjoin(previous_read, buffer);
+		previous_read = ft_strjoin_gnl(previous_read, buffer);
 		buffer = free_one(&buffer);
 	}
 	return (previous_read);
@@ -104,16 +104,19 @@ static char	*store_leftover(char *previous_read)
 
 char	*get_next_line(int fd)
 {
-	static char	*previous_read;
+	static char	*previous_read[OPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || OPEN_MAX < fd || BUFFER_SIZE <= 0)
+	{
+		if (previous_read[fd])
+			return (free_one(&previous_read[fd]));
+	}
+	previous_read[fd] = find_newline(previous_read[fd], fd);
+	if (!previous_read[fd])
 		return (NULL);
-	previous_read = find_newline(previous_read, fd);
-	if (!previous_read)
-		return (NULL);
-	if (store_line(previous_read, &line) < 0)
-		return (free_one(&previous_read));
-	previous_read = store_leftover(previous_read);
+	if (store_line(previous_read[fd], &line) < 0)
+		return (free_one(&previous_read[fd]));
+	previous_read[fd] = store_leftover(previous_read[fd]);
 	return (line);
 }

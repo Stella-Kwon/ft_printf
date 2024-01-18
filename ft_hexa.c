@@ -6,7 +6,7 @@
 /*   By: sukwon <sukwon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 18:29:59 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/01/15 17:23:46 by sukwon           ###   ########.fr       */
+/*   Updated: 2024/01/15 17:43:09 by sukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int	put_ptr(t_print *print, void *n)
 	unsigned long	num;
 
 	num = (unsigned long)n;
-	// if (!n)
-	// 	return ((print)->len); //다음에 붙여 나올 문자열을 생각해서 return -1해선 안됌
 	if (put_str(print, "0x") == -1)
 		return (-1);
 	if (put_hex(print, num, 'a') == -1)
@@ -26,17 +24,15 @@ int	put_ptr(t_print *print, void *n)
 	return ((print)->len);
 }
 
-int put_hex(t_print *print, unsigned long n, char c)
+int	put_hex(t_print *print, unsigned long n, char c)
 {
-	if (n >= 0 && n < 10) // 0-9
+	if (n >= 0 && n < 10)
 	{
 		if (put_char(print, '0' + n) == -1)
 			return (-1);
 	}
-	if (10 <= n && n < 16) // A-F or a-f
+	if (10 <= n && n < 16)
 	{
-		// char digit = 'a' + (n - 10);
-    	// printf("\nn: %lu, char: %c (ASCII: %d)\n", n, digit, digit);
 		if (put_char(print, c + (n - 10)) == -1)
 			return (-1);
 	}
@@ -49,7 +45,6 @@ int put_hex(t_print *print, unsigned long n, char c)
 	}
 	return ((print)->len);
 }
-
 
 int	put_hex_cap(t_print *print, unsigned int n, char c)
 {

@@ -35,36 +35,29 @@ SRCS = ft_toupper.c\
 		ft_substr.c\
 		ft_tolower.c\
 		./get_next_line/get_next_line.c\
-		./get_next_line/get_next_line_utils.c
+		./get_next_line/get_next_line_utils.c \
+		ft_lstiter_bonus.c \
+		ft_lstlast_bonus.c \
+		ft_lstdelone_bonus.c \
+		ft_lstadd_front_bonus.c \
+		ft_lstsize_bonus.c \
+		ft_lstclear_bonus.c \
+		ft_lstadd_back_bonus.c \
+		ft_lstnew_bonus.c \
+		ft_lstmap_bonus.c \
 
-SRCS_BONUS = ft_lstiter_bonus.c\
-			ft_lstlast_bonus.c\
-			ft_lstdelone_bonus.c\
-			ft_lstadd_front_bonus.c\
-			ft_lstsize_bonus.c\
-			ft_lstclear_bonus.c\
-			ft_lstadd_back_bonus.c\
-			ft_lstnew_bonus.c\
-			ft_lstmap_bonus.c\
-			get_next_line/get_next_line_bonus.c\
-			get_next_line/get_next_line_utils_bonus.c
+INCLUDES = -I./ -I./get_next_line
 
-INCLUDES = -I ./libft.h -I ./get_next_line/get_next_line.h
-
-INCLUDES_BONUS = -I ./libft.h -I ./get_next_line/get_next_line_bonus.h
+# INCLUDES_BONUS = -I ./libft.h -I ./get_next_line/get_next_line_bonus.h  :  DON'T NEED AS IT WILL FIND FROM ITSELF BY #include header 
 
 FLAGS = -Wall -Wextra -Werror
 
 OBJS = $(SRCS:.c=.o)
 
-OBJS_BONUS = $(SRCS_BONUS:.c=.o)
-
-all_bonus : all bonus
-	
 #아니면 이렇게 
 #@$(MAKE)OBJS="$(OBJS) $(OBJSBONUS)" --no-print-directory 
 #: make bonus and madatory objects file at the same time. 
-# 간단히 설명하면, $(MAKE)는 현재 Makefile을 다시 호출하는 명령어이며, 
+# 간단히 설명하면, $(MAKE)는 현재 Makefile을 다시 호출하는 명령어이며, 즉 recursive
 # Makefile 내부의 변수 OBJS와 OBJSBONUS를 환경 변수 OBJS로 설정하고 Makefile을 재귀적으로 호출하는 것입니다.
 # --no-print-directory 플래그는 호출되는 각 하위 Makefile에서 디렉토리 변경을 출력하지 않도록 설정하는 것입니다.
 
@@ -84,23 +77,15 @@ $(NAME): $(OBJS)
 $(OBJS): %.o: %.c 
 		gcc $(FLAGS) $(INCLUDES) -o $@ -c $<
 
-bonus : .timestamps
-.timestamps: $(OBJS_BONUS)
-		touch .timestamps
-		ar rcs $(NAME) $(OBJS_BONUS)
-
-$(OBJS_BONUS): %.o: %.c
-		gcc $(FLAGS) $(INCLUDES_BONUS) -o $@ -c $<
-		
 clean:
-		rm -rf $(OBJS) $(OBJS_BONUS)
-		rm -rf .timestamps
+		rm -rf $(OBJS)
+
 fclean: clean
 		rm -rf $(NAME)
 
 re: fclean all
 
-.PHONY: all bonus fclean clean re all_bonus
+.PHONY: all fclean clean re
 
 #-c main.c: 소스 코드를 컴파일하되 링크는 하지 말아라.
 #-o main.o: 출력 파일의 이름을 main.o로 지정하라.

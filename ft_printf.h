@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sukwon <sukwon@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 12:54:49 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/01/15 17:29:41 by sukwon           ###   ########.fr       */
+/*   Updated: 2024/01/17 17:24:09 by skwon2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-//# include <stdlib.h> //libft에 있어서 그냥 libft.h로 추가
-//# include <unistd.h>
 # include <stdarg.h>
 # include <stdio.h>
-# include "./libft/libft.h"
+# include "libft.h"
 
 typedef struct s_print
 {

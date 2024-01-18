@@ -6,7 +6,7 @@
 /*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 14:03:40 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/01/05 15:36:10 by skwon2           ###   ########.fr       */
+/*   Updated: 2024/01/18 12:57:13 by skwon2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,55 +22,7 @@ void	*free_one(char **buffer)
 	return (NULL);
 }
 
-size_t	ft_strlen(const char *s)
-{
-	int	c;
-
-	c = 0;
-	if (!s)
-		return (0);
-	while (s[c] != '\0')
-		c++;
-	return (c);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (NULL);
-	while (s[i] != '\0')
-	{
-		if (s[i] == (unsigned char)c)
-			return ((char *)&s[i]);
-		i++;
-	}
-	if (s[i] == (unsigned char)c)
-		return ((char *)&s[i]);
-	return (NULL);
-}
-
-char	*ft_strdup(const char *s1)
-{
-	char	*res;
-	int		i;
-
-	res = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
-	if (!res || !s1)
-		return (NULL);
-	i = 0;
-	while (s1[i] != '\0')
-	{
-		res[i] = s1[i];
-		i++;
-	}
-	res[i] = '\0';
-	return (res);
-}
-
-char	*ft_strjoin(char *previous_read, char const *buffer)
+char	*ft_strjoin_gnl(char *previous_read, char const *buffer)
 {
 	char	*res;
 	size_t	whole_len;

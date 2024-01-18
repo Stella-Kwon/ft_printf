@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sukwon <sukwon@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:02:16 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/01/12 14:24:33 by sukwon           ###   ########.fr       */
+/*   Updated: 2024/01/18 13:00:13 by skwon2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "./get_next_line/get_next_line.h" // 같은 폴더가 아니라서 이렇게 명시해줘야 찾음  -I랑은 별개. 옵션있어도 정확한 루트 있어야해
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}t_list;
+}				t_list;
 
 size_t	ft_strlen(const char *s);
 int		ft_isascii(int c);
