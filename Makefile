@@ -5,7 +5,7 @@ SRCS = ft_printf.c\
 		ft_char.c\
 		ft_hexa.c
 
-INCLUDE = -I./ -I./libft
+INCLUDE = -I./libft -I./libft/get_next_line
 
 LIBFT_DIR := ./libft
 
