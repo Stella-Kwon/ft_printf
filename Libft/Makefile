@@ -46,7 +46,7 @@ SRCS = ft_toupper.c\
 		ft_lstnew_bonus.c \
 		ft_lstmap_bonus.c \
 
-INCLUDES = -I./ -I./get_next_line
+INCLUDES = -I./
 
 FLAGS = -Wall -Wextra -Werror
 
