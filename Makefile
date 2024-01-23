@@ -8,6 +8,7 @@ SRCS = ft_printf.c\
 INCLUDE = -I./ -I./libft
 # -I.: This includes the current directory (root directory) in the search path.
 # -I./subdir: This includes the subdir directory in the search path.
+# -I./부분은 굳이 필요 없는것이.. 같은 폴더내에서 이미 h파일이 있고 소스파일에 include로 printf.h를 했기 때문에
 
 LIBFT_DIR := ./libft
 
