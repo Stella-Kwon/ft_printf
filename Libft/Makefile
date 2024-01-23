@@ -47,7 +47,8 @@ SRCS = ft_toupper.c\
 		ft_lstmap_bonus.c \
 
 INCLUDES = -I./ -I./get_next_line
-
+# 위 printf의 makefile과 다르게 -I./있어야하는것은...  get_next_line.h의 libft의 위치가 필요하기때문이다.
+# 그리고 makefile의 위치를 중심으로 .h파일에도 ../libft.h가 아닌 libft.h가되는것이다.
 # INCLUDES_BONUS = -I ./libft.h -I ./get_next_line/get_next_line_bonus.h  :  DON'T NEED AS IT WILL FIND FROM ITSELF BY #include header 
 
 FLAGS = -Wall -Wextra -Werror
